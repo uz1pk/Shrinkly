@@ -10,6 +10,10 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
+var (
+	deflen int = 8
+)
+
 func GetAllRedirects(c *fiber.Ctx) error {
 	shrinklies, err := model.GetAll()
 	if err != nil {
@@ -51,7 +55,7 @@ func CreateShrink(c *fiber.Ctx) error {
 	}
 
 	if shrink.Random {
-		shrink.Shrinkly = utils.RandomUrl(8)
+		shrink.Shrinkly = utils.RandomUrl(deflen)
 	}
 
 	err = model.CreateShrink(shrink)
@@ -73,8 +77,8 @@ func UpdateShrink(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"message": "JSON payload invalid" + err.Error(),
 		})
-	}
-
+	} 
+	
 	err = model.UpdateShrink(shrink)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
@@ -131,7 +135,7 @@ func Setup() {
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
-	router.Get("/shrinkly", GetAllRedirects)
+router.Get("/shrinkly", GetAllRedirects)
 	router.Get("/shrinkly/:id", GetSingle)
 
 	router.Post("/shrinkly", CreateShrink)
@@ -140,7 +144,7 @@ func Setup() {
 
 	router.Delete("/shrinkly/:id", DeleteShrink)
 
-	router.Get("/redirect/:url")
+	router.Get("/r/:url", RedirectUrl)
 
 	router.Listen(":3000")
 }

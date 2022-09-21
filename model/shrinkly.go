@@ -39,6 +39,6 @@ func DeleteShrink(id uint64) error {
 
 func FindShrinkFromUrl(url string) (Shrinkly, error) {
 	var shrink Shrinkly
-	res := db.Where("shrinkly = s", url).First(&shrink)
+	res := db.Where("shrinkly = ?", url).First(&shrink)
 	return shrink, res.Error
 }
