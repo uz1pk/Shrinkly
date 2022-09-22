@@ -43,6 +43,18 @@ func GetSingle(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(shrink)
 }
 
+func GetSingleFromUrl(c *fiber.Ctx) error {
+	url := c.Params("url")
+	redirection, err := model.FindShrinkFromUrl(url)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"message": "could not extract url id" + err.Error(),
+		})
+	}
+
+	return c.Status(fiber.StatusOK).JSON(redirection)
+}
+
 func CreateShrink(c *fiber.Ctx) error {
 	c.Accepts("application/json")
 
@@ -77,8 +89,8 @@ func UpdateShrink(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"message": "JSON payload invalid" + err.Error(),
 		})
-	} 
-	
+	}
+
 	err = model.UpdateShrink(shrink)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
@@ -135,7 +147,7 @@ func Setup() {
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
-router.Get("/shrinkly", GetAllRedirects)
+	router.Get("/shrinkly", GetAllRedirects)
 	router.Get("/shrinkly/:id", GetSingle)
 
 	router.Post("/shrinkly", CreateShrink)
@@ -146,5 +158,5 @@ router.Get("/shrinkly", GetAllRedirects)
 
 	router.Get("/r/:url", RedirectUrl)
 
-	router.Listen(":3000")
+	router.Listen(":3001")
 }
