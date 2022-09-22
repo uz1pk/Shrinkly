@@ -1,115 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
 
 :root {
-  /* primary colors */
   --clr-primary-blue: rgba(64, 124, 254, 255);
   --clr-primary-dark_violet: hsl(257, 27%, 26%);
 
-  /* secondary colors */
   --clr-secondary-red: hsl(0, 87%, 67%);
 
-  /* neutral colors */
-  --clr-neutral-gray: hsl(0, 0%, 75%);
   --clr-neutral-grayish_violet: hsl(257, 7%, 63%);
-  --clr-neutral-very_dark_violet: hsl(260, 8%, 14%);
   --clr-neutral-very_dark_blue: hsl(255, 11%, 22%);
   --clr-neutral-background_gray: hsl(225, 33%, 95%);
 
   /* fonts */
   --ff-primary: "Poppins", sans-serif;
-  --ff-body: var(--ff-primary);
-  --ff-heading: var(--ff-primary);
-
-  --fw-regular: 500;
   --fw-bold: 700;
 
   --fs-default: 18px;
   --fs-primary-heading: 3rem;
-  --fs-secondary-heading: 2rem;
-}
-
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
-
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-/* Set core body defaults */
-body {
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img,
-picture,
-svg {
-  max-width: 100%;
-  display: block;
-}
-
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
 
 // UTILITY CLASSES
 .fs-primary-heading {
   font-size: var(--fs-primary-heading);
   font-weight: var(--fw-bold);
-  color: var(--clr-neutral-very_dark_blue);
-}
-
-.fs-secondary-heading {
-  font-size: var(--fs-secondary-heading);
-  font-weight: var(--fw-bold);
-}
-
-.fc-secondary-heading-white {
-  color: white;
-}
-
-.fc-secondary-heading-dark {
   color: var(--clr-neutral-very_dark_blue);
 }
 
@@ -136,10 +48,6 @@ body {
   color: var(--clr-neutral-grayish_violet);
 }
 
-.horizontal-divider {
-  visibility: hidden;
-}
-
 .heading-section {
   display: flex;
   justify-content: center;
@@ -161,8 +69,6 @@ body {
     margin: 0;
   }
 }
-
-
 
 .generated-links {
   margin-top: 2%;
@@ -188,27 +94,6 @@ body {
   margin-right: 1rem;
   width: 100%;
   height: 100%;
-}
-
-.link-input-field.active {
-  border: 3px solid var(--clr-secondary-red);
-
-  &::placeholder {
-    color: var(--clr-secondary-red);
-    opacity: 0.5;
-  }
-}
-
-.error-msg-para {
-  margin-top: 0.5rem;
-  font-style: italic;
-  color: var(--clr-secondary-red);
-  visibility: hidden;
-  position: absolute;
-}
-
-.error-msg-para.active {
-  visibility: visible;
 }
 
 .submit-btn {
@@ -257,157 +142,4 @@ body {
 
 .short-link {
   color: var(--clr-primary-blue);
-}
-
-// Statistics article
-.statistics-wrapper {
-  width: 100%;
-
-  > :first-child {
-    margin: auto;
-    margin-bottom: 100px;
-    width: 50%;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 2.2em;
-    text-align: center;
-    color: #2a2833;
-    margin-bottom: 1rem;
-  }
-}
-
-.cards-section {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  gap: 2%;
-  width: 100%;
-}
-
-.card {
-  position: relative;
-  width: 33%;
-
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
-  min-height: 300px;
-  max-height: fit-content;
-  height: fit-content;
-  word-break: keep-all;
-}
-
-.card-body {
-  padding: 0 30px 30px 30px;
-  margin-top: 80px;
-}
-
-.cards-section::before {
-  content: "";
-  width: 100%;
-  height: 8px;
-  position: absolute;
-  background-color: hsl(180, 66%, 49%);
-  top: 150px;
-  z-index: 0;
-}
-
-.card p {
-  font-size: 0.9em;
-  margin-top: 20px;
-  line-height: 1.4em;
-}
-
-.card-icon {
-  position: absolute;
-  background-color: hsl(257, 27%, 26%);
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  top: -40px;
-  left: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-2 {
-  margin-top: 50px;
-}
-
-.card-3 {
-  margin-top: 100px;
-}
-
-@media (max-width: 991px) {
-  .statistics-wrapper {
-    > :first-child {
-      width: 100%;
-    }
-
-    .cards-section {
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-      margin: auto;
-      width: 100%;
-    }
-
-    .cards-section::before {
-      content: "";
-      width: 8px;
-      height: 100%;
-      position: absolute;
-      background-color: hsl(180, 66%, 49%);
-      top: 0;
-      left: 50%;
-      z-index: 0;
-    }
-
-    .card {
-      width: 100%;
-    }
-
-    .card-icon {
-      left: calc(50% - 37px);
-    }
-
-    .card-body {
-      text-align: center;
-    }
-  }
-}
-
-// call to action section
-.cta-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cta-section-background {
-  background-color: var(--clr-primary-dark_violet);
-  width: 100%;
-
-  :first-child {
-    width: 100%;
-  }
-}
-
-.cta-section-content {
-  position: absolute;
-  text-align: center;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-}
-
-.link-reset {
-  text-decoration: none;
-  color: var(--clr-neutral-grayish_violet);
-  font-weight: var(--fw-regular);
 }
