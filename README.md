@@ -14,6 +14,6 @@ Wanted to learn a bit of GO and spin up a Go web server. Created this little sid
 
 ## Infrastructure
 - Docker
-- Wanted to deploy or GCP or AWS but too expenseive : (
+- Wanted to deploy on GCP or AWS but too expenseive : (
 
 ![Demo image](/demo/demo.png)
