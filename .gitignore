@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+.yarn/
+.yarnrc.yml
+
 # Test binary, built with `go test -c`
 *.test
 
